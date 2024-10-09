@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Loan Eligibility</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Check Loan Eligibility</h2>
+        <form action="#" method="POST">
+            <label for="employment-status">Employment Status:</label>
+            <select id="employment-status" required>
+                <option value="employed">Employed</option>
+                <option value="self-employed">Self-Employed</option>
+                <option value="unemployed">Unemployed</option>
+            </select>
+    
+            <label for="annual-income">Annual Income:</label>
+            <input type="number" id="annual-income" required>
+    
+            <label for="credit-score">Credit Score Range:</label>
+            <select id="credit-score" required>
+                <option value="excellent">Excellent (750+)</option>
+                <option value="good">Good (700-749)</option>
+                <option value="fair">Fair (650-699)</option>
+                <option value="poor">Poor (Below 650)</option>
+            </select>
+    
+            <label for="own-property">Do you own property?</label>
+            <select id="own-property" required>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+    
+            <button type="button" onclick="suggestLoans()">See Available Loans</button>
+        </form>
+    
+        <div id="loan-options" style="display:none;">
+            <h2>Loan Types You Can Apply For:</h2>
+            <ul id="loan-list"></ul>
+        </div>
+    </div>
+    
+    <script>
+        function suggestLoans() {
+            const employmentStatus = document.getElementById('employment-status').value;
+            const annualIncome = document.getElementById('annual-income').value;
+            const creditScore = document.getElementById('credit-score').value;
+            const ownProperty = document.getElementById('own-property').value;
+            const loanList = document.getElementById('loan-list');
+            loanList.innerHTML = ''; // Clear any previous suggestions
+    
+            let loans = [];
+    
+            // Determine loan eligibility
+            if (creditScore === 'excellent' || creditScore === 'good') {
+                loans.push('Personal Loan');
+            }
+    
+            if ((employmentStatus === 'employed' || employmentStatus === 'self-employed') && annualIncome > 30000 && ownProperty === 'yes') {
+                loans.push('Home Loan');
+            }
+    
+            if (employmentStatus === 'self-employed') {
+                loans.push('Business Loan');
+            }
+    
+            if (loans.length > 0) {
+                loans.forEach(loan => {
+                    const li = document.createElement('li');
+                    li.textContent = loan;
+                    loanList.appendChild(li);
+                });
+                document.getElementById('loan-options').style.display = 'block';
+            } else {
+                const li = document.createElement('li');
+                li.textContent = 'Unfortunately, no loans are available based on the provided information.';
+                loanList.appendChild(li);
+                document.getElementById('loan-options').style.display = 'block';
+            }
+        }
+    </script>
+    
+
+</body>

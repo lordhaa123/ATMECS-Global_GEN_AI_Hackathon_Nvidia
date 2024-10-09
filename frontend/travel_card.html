@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Card Application</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Travel Card Application</h1>
+        <form action="#" method="POST">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required><br>
+
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required><br>
+
+            <label for="passport">Passport Number:</label>
+            <input type="text" id="passport" name="passport" required><br>
+
+            <label for="travel-frequency">Frequency of Travel:</label>
+            <select id="travel-frequency" name="travel-frequency" required>
+                <option value="frequent">Frequent Traveler</option>
+                <option value="occasional">Occasional Traveler</option>
+            </select><br>
+
+            <button type="submit">Apply for Travel Card</button>
+        </form>
+    </div>
+</body>
+</html>
