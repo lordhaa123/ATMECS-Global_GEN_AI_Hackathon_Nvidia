@@ -1,7 +1,7 @@
 // App.js
-import React from 'react';
+import React, { useState, useEffect } from "react";
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route , Link} from 'react-router-dom';
 import BankingServices from './BankingServices'; // Adjust the path if needed
 import ApplyCard from './ApplyCard';
 import CheckBenefits from './CheckBenefits';
@@ -15,6 +15,7 @@ import PersonalLoan from './PersonalLoan';
 import PremiumCard from './PremiumCard';
 import Rewards from './Rewards';
 import TravelCard from './TravelCard';
+import Chatbot from './chatbot';
 
 
 
@@ -36,6 +37,7 @@ const App = () => {
                 <Route path="/Rewards" element={<Rewards />} />
                 <Route path="/TravelCard" element={<TravelCard />} />
             </Routes>
+            <Chatbot />
         </BrowserRouter>
     );
 };

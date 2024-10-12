@@ -21,7 +21,7 @@ const Bank_HomePg = () => {
                     <Link to="/DebitCard">
                         <div className="card-box">Debit Card</div>
                     </Link>
-                    <Link to="/PersonaLoan">
+                    <Link to="/PersonalLoan">
                         <div className="card-box">Personal Loan</div>
                     </Link>
                     <Link to="/HomeLoan">
