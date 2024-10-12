@@ -8,7 +8,7 @@ import CheckBenefits from './CheckBenefits';
 import CreditCard from './CreditCard'; 
 import DebitCard from './DebitCard';
 import FASTag from './FASTag';
-import Funds from './Funds';
+import MutualFunds from './MutualFunds';
 import HomeLoan from './HomeLoan';
 import LoanEligibility from './LoanEligibility';
 import PersonalLoan from './PersonalLoan';
@@ -28,7 +28,7 @@ const App = () => {
                 <Route path="/CheckBenefits" element={<CheckBenefits />} /> 
                 <Route path="/CreditCard" element={<CreditCard />} /> 
                 <Route path="/DebitCard" element={<DebitCard />} />
-                <Route path="/Funds" element={<Funds />} />
+                <Route path="/MutualFunds" element={<MutualFunds />} />
                 <Route path="/FASTag" element={<FASTag />} />
                 <Route path="/HomeLoan" element={<HomeLoan />} />
                 <Route path="/LoanEligibility" element={<LoanEligibility />} />

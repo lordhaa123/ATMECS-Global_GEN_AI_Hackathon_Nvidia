@@ -52,8 +52,8 @@ const Bank_HomePg = () => {
                     <Link to="/FASTag">
                         <div className="service-box">FASTag Services</div>
                     </Link>
-                    <Link to="/Funds">
-                        <div className="service-box">Funds Transfer</div>
+                    <Link to="/MutualFunds">
+                        <div className="service-box">Mutual Funds</div>
                     </Link>
                     <Link to="/Rewards">
                         <div className="service-box">Rewards and Cashback Offers</div>

@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import './styles.css'; // Import your CSS file
 
-const Funds = () => {
+const MutualFunds = () => {
     // State to manage form data
     const [formData, setFormData] = useState({
-        fromAccount: '',
-        toAccount: '',
+        investorName: '',
+        investorID: '',
+        fundType: '',
         amount: '',
-        transferType: '',
+        investmentType: '',
         scheduleDate: '',
         scheduleTime: '',
         description: '',
@@ -24,12 +25,12 @@ const Funds = () => {
         }));
     };
 
-    // Handle transfer type change
-    const handleTransferTypeChange = (e) => {
+    // Handle investment type change
+    const handleInvestmentTypeChange = (e) => {
         const value = e.target.value;
         setFormData((prevData) => ({
             ...prevData,
-            transferType: value,
+            investmentType: value,
         }));
         setIsScheduled(value === 'scheduled');
     };
@@ -37,15 +38,16 @@ const Funds = () => {
     // Handle form submission
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log('Funds transfer submitted:', formData);
-        alert("Your funds transfer request has been submitted successfully!");
-        
+        console.log('Mutual funds investment submitted:', formData);
+        alert("Your mutual funds investment request has been submitted successfully!");
+
         // Reset form data
         setFormData({
-            fromAccount: '',
-            toAccount: '',
+            investorName: '',
+            investorID: '',
+            fundType: '',
             amount: '',
-            transferType: '',
+            investmentType: '',
             scheduleDate: '',
             scheduleTime: '',
             description: '',
@@ -83,29 +85,44 @@ const Funds = () => {
 
     return (
         <div className="container">
-            <h1>Funds Transfer</h1>
+            <h1>Mutual Funds Investment</h1>
             <form onSubmit={handleSubmit}>
-                <label htmlFor="from-account">From Account Number:</label>
+                <label htmlFor="investor-name">Investor Name:</label>
                 <input
                     type="text"
-                    id="from-account"
-                    name="fromAccount"
-                    value={formData.fromAccount}
+                    id="investor-name"
+                    name="investorName"
+                    value={formData.investorName}
                     onChange={handleChange}
                     required
                 /><br />
 
-                <label htmlFor="to-account">To Account Number:</label>
+                <label htmlFor="investor-id">Investor ID (PAN or Aadhar):</label>
                 <input
                     type="text"
-                    id="to-account"
-                    name="toAccount"
-                    value={formData.toAccount}
+                    id="investor-id"
+                    name="investorID"
+                    value={formData.investorID}
                     onChange={handleChange}
                     required
                 /><br />
 
-                <label htmlFor="amount">Transfer Amount:</label>
+                <label htmlFor="fund-type">Mutual Fund Type:</label>
+                <select
+                    id="fund-type"
+                    name="fundType"
+                    value={formData.fundType}
+                    onChange={handleChange}
+                    required
+                >
+                    <option value="">Select Fund Type</option>
+                    <option value="equity">Equity Fund</option>
+                    <option value="debt">Debt Fund</option>
+                    <option value="hybrid">Hybrid Fund</option>
+                    <option value="index">Index Fund</option>
+                </select><br />
+
+                <label htmlFor="amount">Investment Amount:</label>
                 <input
                     type="number"
                     id="amount"
@@ -115,17 +132,18 @@ const Funds = () => {
                     required
                 /><br />
 
-                <label htmlFor="transfer-type">Transfer Type:</label>
+                <label htmlFor="investment-type">Investment Type:</label>
                 <select
-                    id="transfer-type"
-                    name="transferType"
-                    value={formData.transferType}
-                    onChange={handleTransferTypeChange}
+                    id="investment-type"
+                    name="investmentType"
+                    value={formData.investmentType}
+                    onChange={handleInvestmentTypeChange}
                     required
                 >
-                    <option value="">Select Transfer Type</option>
-                    <option value="immediate">Immediate Transfer</option>
-                    <option value="scheduled">Scheduled Transfer</option>
+                    <option value="">Select Investment Type</option>
+                    <option value="lumpsum">Lump Sum Investment</option>
+                    <option value="sip">Systematic Investment Plan (SIP)</option>
+                    <option value="scheduled">Scheduled Investment</option>
                 </select><br />
 
                 {/* Schedule options */}
@@ -164,10 +182,10 @@ const Funds = () => {
                 ></textarea><br />
                 <br />
 
-                <button type="submit">Transfer Funds</button>
+                <button type="submit">Submit Investment</button>
             </form>
         </div>
     );
 };
 
-export default Funds;
+export default MutualFunds;
