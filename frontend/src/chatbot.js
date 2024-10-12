@@ -63,7 +63,31 @@ const Chatbot = () => {
     }
   };
   
-  
+
+  const renderMessageWithLink = (message) => {
+    // Split the message into lines
+    const lines = message.trim().split('\n');
+
+    // Check if there are multiple lines and the last line is a URL
+    const lastLine = lines.pop();
+
+    const endpoint = lastLine.split('/').pop();
+
+    return (
+      <div>
+        {/* Render all lines except the last one */}
+        {lines.length > 0 && <ReactMarkdown>{lines.join('\n')}</ReactMarkdown>}
+
+        {/* Render the last line as a link */}
+        <p>
+          <a href={lastLine}>
+            {endpoint}
+          </a>
+        </p>
+      </div>
+    );
+  };
+
 
   return (
     <div>
@@ -87,7 +111,7 @@ const Chatbot = () => {
     <div key={index} style={styles.message}>
       <strong>{entry.sender}: </strong>
       {entry.sender === "bot" ? (
-        <ReactMarkdown>{entry.message}</ReactMarkdown> // Render bot's message as Markdown
+          renderMessageWithLink(entry.message)
       ) : (
         <span>{entry.message}</span> // Render user's message normally
       )}
