@@ -2,9 +2,16 @@ import openai
 from catogory_to_link import catogory_to_link
 import re
 
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+ACCESS_TOKEN = os.getenv("ACCESS_TOKEN")
+
 client = openai.OpenAI(
   base_url = "https://integrate.api.nvidia.com/v1",
-  api_key = "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"
+  api_key = ACCESS_TOKEN
 )
 
 def func(prompt:str) -> str:
