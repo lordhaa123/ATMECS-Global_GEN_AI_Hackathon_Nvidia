@@ -26,12 +26,8 @@ class PromptRequest(BaseModel):
 
 @app.post("/postRequest")
 async def root(request: PromptRequest):
-    prompt = request.prompt  # Extract the 'prompt' field from the request
-    # print(prompt)
+    prompt = request.prompt 
     
-    result = func(prompt)  # Your function that processes the prompt
-    print(result)
-    # result = json.dumps(result)
-    # print(result)
-    
+    result = func(prompt)  
+  
     return result

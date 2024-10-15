@@ -23,3 +23,5 @@ catogory_to_link['FASTTag'] = "http://localhost:3000/FASTag"
 catogory_to_link['mutualfunds'] = "http://localhost:3000/MutualFunds"
 
 catogory_to_link['rewardsandcashback'] = "http://localhost:3000/Rewards"
+
+catogory_to_link['ERROR'] = "no viable link found"
